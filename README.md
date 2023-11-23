@@ -1,2 +1,2 @@
 # DMCAVD
-double side mask converged attention based vulnerability detection
+Double-side Mask Converged Attention based Vulnerability Detection modle
