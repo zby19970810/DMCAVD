@@ -102,9 +102,10 @@ python pklGenNew.py -v ../dataset/sard/outputs/Vul -n ../dataset/sard/outputs/No
 
 #### Step 6: Train with DMCAVD
 ```
+cd ..
 # "wm" means work mode, you can choose train or test
 # If "train" is chosen, "-tr", "-v", "-te" mean the path of train, val and test dataset. "-s" is the save path of models,"-e" is the train epoch
-python DMCA.py -wm train -tr ../dataset/sard/pkls/train.pickle -v ../dataset/sard/pkls/val.pickle -te ../dataset/sard/pkls/test.pickle -s ../model/sard/ -e 100
+python DMCA.py -wm train -tr ./dataset/sard/pkls/train.pickle -v ../dataset/sard/pkls/val.pickle -te ./dataset/sard/pkls/test.pickle -s ./model/sard/ -e 100
 # If "test" is chosen, we only need to feed "-te". Then "-l" is the path for model weight to be loaded.
-python DMCA.py -wm test -te ../dataset/sard/pkls/test.pickle -l ../model/sard/model-test.hdf5
+python DMCA.py -wm test -te ./dataset/sard/pkls/test.pickle -l ./model/sard/model-test.hdf5
 ```
