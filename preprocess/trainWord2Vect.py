@@ -93,8 +93,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# python trainWord2Vect.py -i /media/zhengboyang/数据/vulcnn-data/sard-nvd/Vul -o /media/zhengboyang/数据/vulcnn-data/sard-nvd/wordModelSardTest -d 128
-
-
-
