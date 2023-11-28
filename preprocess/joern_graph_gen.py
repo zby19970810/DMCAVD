@@ -135,5 +135,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-# python joern_graph_gen.py  -i /media/zhengboyang/数据/vulcnn-data/dataset/NVD1/Vul -o /media/zhengboyang/数据/vulcnn-data/dataset/NVD1/bins/Vul -t parse
-# python joern_graph_gen.py  -i /media/zhengboyang/数据/vulcnn-data/dataset/NVD1/bins/Vul -o /media/zhengboyang/数据/vulcnn-data/dataset/NVD1/asts/Vul -t export -r pdg
