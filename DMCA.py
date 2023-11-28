@@ -193,6 +193,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# python DMCA.py -wm test -te /media/zhengboyang/数据/vulcnn-data/sard-nvd/pkls/test.pickle -l /media/zhengboyang/数据/vulcnn-data/rushell-model/model-test-token.hdf5
-# python DMCA.py -wm train -tr /media/zhengboyang/数据/vulcnn-data/sard-nvd/pkls/val.pickle -v /media/zhengboyang/数据/vulcnn-data/sard-nvd/pkls/test.pickle -te /media/zhengboyang/数据/vulcnn-data/sard-nvd/pkls/test.pickle -s /media/zhengboyang/数据/vulcnn-data/rushell-model -e 100
