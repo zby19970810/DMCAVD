@@ -76,7 +76,6 @@ class doubleSideAttnWithOri(tf.keras.layers.Layer):
             for i in range(self.oriHead):
                 attentionsOri.append(
                     tf.reshape(tf.matmul(queuesOri[i], keysOri[i]), shape=(-1, INPUT_SIZE, INPUT_SIZE,1)))
-            # 对于ori来说，取三层的最大值
             allAttnOri = tf.concat(attentionsOri, axis=3)
             attenRes = tf.reduce_max(allAttnOri, axis=3)
             sentenceAttentionOri = tf.matmul(input_sentence, attenRes)
@@ -122,11 +121,8 @@ class doubleSideAttnWithOri(tf.keras.layers.Layer):
             maskedSentAttnsOut = []
             for i in range(self.outMaskHead):
                 thisMaskedSentAttnsOut=(input_sentence-1) * sentenceAttentionsOut[i]
-                # 用reducesum求出每一句的包含几个token
                 senteceInclude = tf.reshape(tf.reduce_sum(input_sentence, axis=2), shape=(-1, SENTENCE_SIZE, 1))
-                # 然后求出句外有几个token
                 senteceOutclude = 500 - senteceInclude
-                # 强度映射
                 thisMaskedSentAttnsOut = thisMaskedSentAttnsOut / senteceOutclude * senteceInclude
                 maskedSentAttnsOut.append(thisMaskedSentAttnsOut)
             for i in range(self.outMaskHead):
@@ -166,16 +162,14 @@ class mulityHeadAttnGCN(tf.keras.layers.Layer):
 
             input_relation = addSelf(sequence_length=128)(this_relation)
 
-            # 获得atten之后，使用relation作mask
-            # 为了避免除数为0加一个小数
             # x,128,128
             pdgAttn = this_relation * sentenceAttention + 0.00000000001
 
-            # sum一下
+            # sum
             indegreed = tf.math.sqrt(tf.reduce_sum(pdgAttn, axis=1, keepdims=True))
             outdegreed = tf.math.sqrt(tf.reduce_sum(pdgAttn, axis=2, keepdims=True))
 
-            # softmax一下
+            # softmax
             pdgAttn = pdgAttn/indegreed
             pdgAttn = pdgAttn/outdegreed
 
