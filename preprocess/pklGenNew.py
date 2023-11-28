@@ -141,5 +141,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-# python pklGenNew.py -v /media/zhengboyang/数据/vulcnn-data/data118/outputs/Vul -n /media/zhengboyang/数据/vulcnn-data/data118/outputs/No-Vul -o /media/zhengboyang/数据/vulcnn-data/data118/pkls -tr 0.8 -vr 0.1
